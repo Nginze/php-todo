@@ -1,5 +1,5 @@
 <?php
-
+    include('./src/php/db.php');
     session_start();
     if(isset($_SESSION['email']) || isset($_SESSION['user_id'])){
         header("Location: http://localhost/php-todo-app/src/php/home.php");
@@ -9,16 +9,7 @@
     }
     echo $_SESSION['email'] ?? 'not logged in';
     if(!empty($_POST)){
-        $host = "localhost";
-        $username = "root";
-        $password = "guuk12jona";
-        $db = "php_todo";
-
-        $conn = mysqli_connect($host, $username, $password, $db);
-
-        if(!$conn){
-            die("connection to db failed". mysqli_connect_error());
-        }
+        
         $posted_email = $_POST['email'];
         $posted_password = $_POST['password'];
 
